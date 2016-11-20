@@ -1,0 +1,67 @@
+= Docker Mentor Week 2016
+
+image::dockermentorweek.jpg[]
+
+Los siguientes pasos son requeridos para poder dar inicio con el Lab. Ejecutarlos previamente al meetup.
+
+. Crear una cuenta en https://hub.docker.com/[Docker Hub^]
+. Configurar Docker
+.. Linux +
+  Instalar https://docs.docker.com/engine/installation/[Docker Engine^] y https://docs.docker.com/compose/install/[Docker Compose^]
+.. Mac +
+  Instalar https://docs.docker.com/docker-for-mac/[Docker for Mac^] o https://docker.github.io/toolbox/[Docker Toolbox^]
+.. Windows +
+  Instalar https://docs.docker.com/docker-for-windows/[Docker for Windows^] o https://docs.docker.com/docker-for-windows/[Docker for Toolbox^]
+
+Luego de haber realizado la instalación, verificar que todo esta correctamente instalado:
+
+Verificando `docker`:
+
+[source,bash]
+----
+docker --version
+----
+
+Verificando `docker-compose`:
+
+[source,bash]
+----
+docker-compose -version
+----
+
+Adicionalmente, aquellos que han instalado `Docker Toolbox` verificar que `docker-machine` está instalado:
+
+[source,bash]
+----
+docker-machine -version
+----
+
+Los usuarios de `Docker for Mac` y `Docker for Windows`, solo tienen que dar inicio a la aplicación y tendrán acceso a interactuar con el `docker engine` a través de su terminal.
+
+Los usuarios de `Docker Toolbox`, tendrán que realizar algunos pasos previos:
+
+[source,bash]
+----
+docker-machine create -d=virtualbox mentorday (1)
+docker-machine env mentorday (2)
+eval "$(docker-machine env mentorday)" (3)
+docker-compose up (4)
+----
+
+<1> Crea una nueva máquina virtual llamada `mentorday`.
+<2> Visualizar las variables de entorno de docker que serán configuradas.
+<3> Comando para configurar la línea de comandos.
+<4> Inicia el ambiente.
+
+Descargar las siguientes imágenes haciendo uso del comando `docker pull <nombre de la imagen>`:
+
+* hello-world
+* alpine
+* seqvence/static-site
+* microsoft/dotnet:1.0.0-preview1
+* node:5.11.0-slim
+* python:2.7-alpine
+* redis:alpine
+* postgres:9.4
+
+Por ejemplo, `docker pull hello-world`.
